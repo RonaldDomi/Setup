@@ -1,0 +1,250 @@
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias lla='ls -Al'
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias h81='ssh h81'
+alias h82='ssh h82'
+alias h83='ssh h83'
+alias h37='ssh h37'
+alias h36='ssh h36'
+alias h35='ssh h35'
+alias r29='ssh r29'
+
+alias gitlog="git log --oneline -n"
+
+# TMUX commands
+alias tls='tmux list-sessions'
+alias ta='tmux attach -t'
+
+
+h() {
+    print_ronalds_notes
+}
+
+htmux() {
+    echo -e "${CYAN}====== TMUX Help & Quick Commands ======${NC}"
+    echo ""
+
+    echo -e "${GREEN}🚀 QUICK START${NC}"
+    echo -e "  tmux new -s ${YELLOW}<name>${NC}        Create new session"
+    echo -e "  tmux attach -t ${YELLOW}<name>${NC}     Attach to session"
+    echo -e "  tmux ls                   List all sessions"
+    echo -e "  tmux kill-session -t ${YELLOW}<name>${NC}  Kill session"
+    echo -e "  tmux kill-server          Kill all sessions"
+    echo ""
+
+    echo -e "${BLUE}🖥️  SESSIONS & WINDOWS${NC}"
+    echo -e "  ${PURPLE}Ctrl+b d${NC}               Detach session"
+    echo -e "  ${PURPLE}Ctrl+b s${NC}               List/switch sessions"
+    echo -e "  ${PURPLE}Ctrl+b \$${NC}              Rename session"
+    echo -e "  ${PURPLE}Ctrl+b c${NC}               Create new window"
+    echo -e "  ${PURPLE}Ctrl+b n/p${NC}             Next/previous window"
+    echo -e "  ${PURPLE}Ctrl+b 0-9${NC}             Go to window number"
+    echo -e "  ${PURPLE}Ctrl+b w${NC}               List windows (interactive)"
+    echo -e "  ${PURPLE}Ctrl+b ,${NC}               Rename current window"
+    echo -e "  ${PURPLE}Ctrl+b &${NC}               Kill current window"
+    echo ""
+
+    echo -e "${YELLOW}📱 PANES${NC}"
+    echo -e "  ${PURPLE}Ctrl+b %${NC}               Split vertical"
+    echo -e "  ${PURPLE}Ctrl+b \"${NC}              Split horizontal"
+    echo -e "  ${PURPLE}Ctrl+b h/j/k/l${NC}         Navigate panes (if configured)"
+    echo -e "  ${PURPLE}Ctrl+b ←/↓/↑/→${NC}         Navigate panes (default)"
+    echo -e "  ${PURPLE}Ctrl+b o${NC}               Cycle through panes"
+    echo -e "  ${PURPLE}Ctrl+b q${NC}               Show pane numbers"
+    echo -e "  ${PURPLE}Ctrl+b z${NC}               Zoom/unzoom pane"
+    echo -e "  ${PURPLE}Ctrl+b x${NC}               Kill current pane"
+    echo -e "  ${PURPLE}Ctrl+b !${NC}               Break pane to new window"
+    echo ""
+
+    echo -e "${RED}🔧 RESIZE & LAYOUT${NC}"
+    echo -e "  \033[1;35mCtrl+b Ctrl+←/→/↓/↑\033[0m   Resize panes"
+ 
+    echo -e "  ${PURPLE}Ctrl+b Space${NC}           Cycle layouts"
+    echo -e "  ${PURPLE}Ctrl+b Alt+1-5${NC}         Apply specific layout"
+    echo -e "  ${PURPLE}Ctrl+b {${NC}               Swap pane left"
+    echo -e "  ${PURPLE}Ctrl+b }${NC}               Swap pane right"
+    echo ""
+
+    echo -e "${CYAN}📋 COPY MODE${NC}"
+    echo -e "  ${PURPLE}Ctrl+b [${NC}               Enter copy mode"
+    echo -e "  ${PURPLE}Space/v${NC}                Start selection"
+    echo -e "  ${PURPLE}Enter/y${NC}                Copy selection"
+    echo -e "  ${PURPLE}Ctrl+b ]${NC}               Paste"
+    echo -e "  ${PURPLE}q${NC}                      Quit copy mode"
+    echo ""
+
+    echo -e "${WHITE}⚙️  USEFUL COMMANDS${NC}"
+    echo -e "  ${PURPLE}Ctrl+b ?${NC}               List all keybindings"
+    echo -e "  ${PURPLE}Ctrl+b :${NC}               Command prompt"
+    echo -e "  ${PURPLE}Ctrl+b r${NC}               Reload config (if configured)"
+    echo -e "  tmux source ~/.tmux.conf   Reload config manually"
+    echo -e "  tmux show-options -g       Show all global options"
+    echo ""
+
+    echo -e "${GREEN}💡 PRO TIPS${NC}"
+    echo -e "  • Rename windows: ${PURPLE}Ctrl+b ,${NC} then type ${YELLOW}server${NC}, ${YELLOW}editor${NC}, etc."
+    echo -e "  • ${PURPLE}Ctrl+b q${NC} + number = quick pane jump"
+    echo -e "  • ${PURPLE}Ctrl+b w${NC} for visual window picker"
+    echo -e "  • ${PURPLE}Ctrl+b s${NC} for visual session picker"
+    echo ""
+}
+
+hnetrw() {
+    echo -e "${CYAN}====== NetRW Help & Quick Commands ======${NC}"
+    echo ""
+
+    echo -e "${GREEN}🚀 OPENING NetRW${NC}"
+    echo -e "  :Lex                      Vertical split explorer"
+    echo -e "  :Sex                      Horizontal split explorer"
+    echo -e "  :Vex                      Vertical split explorer"
+    echo -e "  :Hex                      Horizontal split explorer"
+    echo -e "  :Tex                      Tab explorer"
+    echo -e "  :${YELLOW}<size>${NC}Sex              Sized horizontal split"
+    echo -e "  :e .                      Open netrw in current buffer"
+    echo -e "  :Lexplore %:p:h           Open directory of current file"
+    echo -e "  :Lexplore                 Open current working directory"
+    echo ""
+
+    echo -e "${BLUE}📁 NAVIGATION${NC}"
+    echo -e "  ${PURPLE}Enter${NC}                   Enter directory/open file"
+    echo -e "  ${PURPLE}-${NC}                       Go up one directory"
+    echo -e "  ${PURPLE}u${NC}                       Undo to last directory"
+    echo -e "  ${PURPLE}U${NC}                       Redo to next directory"
+    echo -e "  ${PURPLE}gf${NC}                      Go to file under cursor"
+    echo -e "  ${PURPLE}<C-l>${NC}                   Refresh directory listing"
+    echo ""
+
+    echo -e "${YELLOW}📂 FILE OPERATIONS${NC}"
+    echo -e "  ${PURPLE}o${NC}                       Open file in horizontal split"
+    echo -e "  ${PURPLE}v${NC}                       Open file in vertical split"
+    echo -e "  ${PURPLE}t${NC}                       Open file in new tab"
+    echo -e "  ${PURPLE}p${NC}                       Open preview window"
+    echo -e "  ${PURPLE}<C-w> z${NC}                Close preview window"
+    echo -e "  ${PURPLE}x${NC}                       Execute file (system default)"
+    echo -e "  ${PURPLE}qf${NC}                      Quick file info"
+    echo ""
+
+    echo -e "${RED}🔧 FILE MANAGEMENT${NC}"
+    echo -e "  ${PURPLE}%${NC}                       Create new file (buffer)"
+    echo -e "  ${PURPLE}d${NC}                       Create directory"
+    echo -e "  ${PURPLE}R${NC}                       Rename file/directory"
+    echo -e "  ${PURPLE}D${NC}                       Delete empty directory"
+    echo -e "  ${PURPLE}gp${NC}                      Change permissions"
+    echo ""
+
+    echo -e "${CYAN}🏷️  BOOKMARKS${NC}"
+    echo -e "  ${PURPLE}mb${NC}                      Mark bookmark"
+    echo -e "  ${PURPLE}gb${NC}                      Go to bookmark directory"
+    echo ""
+
+    echo -e "${PURPLE}📋 MULTIPLE FILES${NC}"
+    echo -e "  ${PURPLE}mf${NC}                      Mark file"
+    echo -e "  ${PURPLE}mt${NC}                      Mark target directory"
+    echo -e "  ${PURPLE}mm${NC}                      Move marked files to target"
+    echo -e "  ${PURPLE}mc${NC}                      Copy marked files to target"
+    echo -e "  ${PURPLE}mu${NC}                      Unmark all marked files"
+    echo -e "  ${PURPLE}mz${NC}                      Compress/uncompress marked files"
+    echo -e "  ${PURPLE}qL${NC}                      List marked files"
+    echo ""
+
+    echo -e "${GREEN}👁️  VIEW OPTIONS${NC}"
+    echo -e "  ${PURPLE}i${NC}                       Cycle view modes (thin/long/wide/tree)"
+    echo -e "  ${PURPLE}I${NC}                       Toggle banner on/off"
+    echo -e "  ${PURPLE}gh${NC}                      Toggle hidden files"
+    echo -e "  ${PURPLE}s${NC}                       Change sorting (name/time/size/ext)"
+    echo -e "  ${PURPLE}r${NC}                       Reverse sort order"
+    echo ""
+
+    echo -e "${WHITE}⚙️  USEFUL CONFIG${NC}"
+    echo -e "  let g:netrw_banner = 0           Hide banner by default"
+    echo -e "  let g:netrw_winsize = 30         Set window size (30%)"
+    echo -e "  let g:netrw_liststyle = 3        Tree view by default"
+    echo -e "  let g:netrw_browse_split = 4     Open in previous window"
+    echo -e "  let g:netrw_altv = 1             Open splits to the right"
+    echo -e "  hi! link netrwMarkFile Search    Highlight marked files"
+    echo ""
+
+    echo -e "${YELLOW}🗝️  KEYBINDINGS${NC}"
+    echo -e "  nnoremap <leader>dd :Lexplore %:p:h<CR>   Directory of current file"
+    echo -e "  nnoremap <leader>da :Lexplore<CR>         Current working directory"
+    echo ""
+
+    echo -e "${GREEN}💡 PRO TIPS${NC}"
+    echo -e "  • Use ${PURPLE}:Lex${NC} for IDE-like file browser experience"
+    echo -e "  • Mark multiple files with ${PURPLE}mf${NC}, set target with ${PURPLE}mt${NC}, then ${PURPLE}mm${NC}/${PURPLE}mc${NC}"
+    echo -e "  • ${PURPLE}i${NC} cycles views - tree view (3) is most useful"
+    echo -e "  • ${PURPLE}%${NC} creates buffer - only saves file when you ${PURPLE}:w${NC}"
+    echo -e "  • Use ${PURPLE}p${NC} for quick preview, ${PURPLE}<C-w>z${NC} to close"
+    echo ""
+}
+
+hcoc() {
+    echo -e "${CYAN}====== Coc.nvim Help & Quick Commands ======${NC}"
+    echo ""
+
+    echo -e "${GREEN}🚀 CODE COMPLETION${NC}"
+    echo -e "  ${PURPLE}Tab${NC}                      Accept completion / Next item"
+    echo -e "  ${PURPLE}Shift+Tab${NC}               Previous completion item"
+    echo -e "  ${PURPLE}Enter${NC}                   Confirm completion selection"
+    echo ""
+
+    echo -e "${BLUE}🧭 CODE NAVIGATION${NC}"
+    echo -e "  ${PURPLE}gd${NC}                      Go to definition"
+    echo -e "  ${PURPLE}gy${NC}                      Go to type definition"
+    echo -e "  ${PURPLE}gi${NC}                      Go to implementation"
+    echo -e "  ${PURPLE}gr${NC}                      Go to references"
+    echo ""
+
+    echo -e "${YELLOW}🎨 CODE FORMATTING${NC}"
+    echo -e "  ${PURPLE}<leader>l${NC}               Format selected code (visual mode)"
+    echo -e "  ${PURPLE}<leader>L${NC}               Format entire file"
+    echo ""
+
+    echo -e "${RED}⚙️  COC COMMANDS & CONFIGURATION${NC}"
+    echo -e "  ${PURPLE}:CocRestart${NC}             Restart Coc language servers"
+    echo -e "  ${PURPLE}:CocList${NC}                Show interactive list menu"
+    echo ""
+    echo -e "  Configuration file:          ${YELLOW}~/.vim/coc-settings.json${NC}"
+    echo -e "  autoTrigger: trigger         Automatic completion trigger"
+    echo -e "  timeout: 5000ms              Completion timeout"
+    echo -e "  TypeScript: enabled          TS support with auto-imports & function calls"
+    echo -e "  Prettier: enabled            Code formatting"
+    echo -e "  ESLint: autofix on save      Automatic lint fixes"
+    echo ""
+    
+    echo -e "${CYAN}📋 COCLIST OPTIONS${NC}"
+    echo -e "  :CocList shows interactive lists for:"
+    echo -e "  • ${PURPLE}diagnostics${NC}           Errors/warnings across entire project"
+    echo -e "  • ${PURPLE}extensions${NC}            Installed Coc extensions management"
+    echo -e "  • ${PURPLE}symbols${NC}               Functions, classes, variables in current file"
+    echo -e "  • ${PURPLE}outline${NC}               Document structure for navigation"
+    echo -e "  • ${PURPLE}files${NC}                 Project file browser with fuzzy search"
+    echo -e "  • ${PURPLE}grep${NC}                  Search text across all project files"
+    echo -e "  • ${PURPLE}commands${NC}              Available Coc commands"
+    echo ""
+
+    echo -e "${PURPLE}📋 COMPLETION BEHAVIOR${NC}"
+    echo -e "  • Tab navigation through completion items"
+    echo -e "  • Automatic trigger on typing"
+    echo -e "  • Enter confirms selection with proper indentation"
+    echo -e "  • Shift+Tab moves backwards in completion list"
+    echo ""
+
+    echo -e "${WHITE}💡 PRO TIPS${NC}"
+    echo -e "  • Use ${PURPLE}gd${NC} to quickly jump to function definitions"
+    echo -e "  • ${PURPLE}gr${NC} shows all references to symbol under cursor"
+    echo -e "  • Format code with ${PURPLE}<leader>L${NC} before committing"
+    echo -e "  • ${PURPLE}gi${NC} finds implementations of interfaces/abstract methods"
+    echo ""
+
+    echo -e "${GREEN}🔌 LEADER KEY REMINDER${NC}"
+    echo -e "  Leader key is: ${YELLOW}Space${NC}"
+    echo -e "  So ${PURPLE}<leader>l${NC} = ${YELLOW}Space + l${NC}"
+    echo -e "  And ${PURPLE}<leader>L${NC} = ${YELLOW}Space + L${NC}"
+    echo ""
+}
+

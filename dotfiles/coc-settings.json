@@ -1,0 +1,63 @@
+{
+  "suggest.autoTrigger": "always",
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.timeout": 5000,
+  "suggest.minTriggerInputLength": 2,
+  
+  "typescript.suggest.enabled": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.updateImportsOnFileMove.enable": true,
+  "typescript.suggest.includeCompletionsForModuleExports": false,
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
+  
+  "suggest.filterGraceful": true,
+  "suggest.localityBonus": true,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.acceptSuggestionOnCommitCharacter": false,
+  
+  "suggest.filterWords": ["const", "console", "continue", "config", "constructor", "contains"],
+  
+  "typescript.suggest.completeJSDocs": false,
+  "javascript.suggest.completeJSDocs": false,
+  
+  "suggest.snippetIndicator": "",
+  
+  "suggest.completionItemKindLabels": {
+    "method": "⚡",
+    "function": "ƒ",
+    "variable": "",
+    "property": ".",
+    "class": "⬜",
+    "constructor": "⬜"
+  },
+  
+  "prettier.enable": true,
+  "eslint.enable": true,
+  
+  "hover.enabled": true,
+  "hover.target": "float",
+  "hover.floatConfig": {
+    "highlight": false
+  },
+  
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  
+  "signature.enable": true,
+  "signature.target": "float",
+  
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "pyright.inlayHints.functionReturnTypes": true,
+  "pyright.inlayHints.variableTypes": true
+}
+

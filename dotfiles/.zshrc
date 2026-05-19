@@ -176,3 +176,5 @@ fi
 
 export LD_LIBRARY_PATH=$HOME/local/bin:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
+unsetopt BEEP

@@ -156,6 +156,17 @@ print_ronalds_notes() {
     echo -e "  Folding:         ${CYAN}<leader><leader>${NC}"
     echo -e "  File nav:        ${CYAN}<C-p>, <leader>fs, <leader>fa, <leader>fw${NC}"
     echo -e "  Coc config:      ${YELLOW}/.vim/coc-settings${NC} (TypeScript configured)"
+    echo ""
+    echo -e "${CYAN}====== ${WHITE}TMUX Sessions ${CYAN}======${NC}"
+    local tmux_sessions
+    tmux_sessions=$(tmux list-sessions 2>/dev/null)
+    if [ -n "$tmux_sessions" ]; then
+        while IFS= read -r line; do
+            echo -e "  ${line}"
+        done <<< "$tmux_sessions"
+    else
+        echo -e "  ${WHITE}(no active sessions)${NC}"
+    fi
 }
 
 # Only print notes if this is an interactive shell

@@ -58,6 +58,8 @@
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "black",
   "pyright.inlayHints.functionReturnTypes": true,
-  "pyright.inlayHints.variableTypes": true
+  "pyright.inlayHints.variableTypes": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportLineTooLong": "none"
+  }
 }
-

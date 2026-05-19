@@ -12,7 +12,7 @@ set statusline=%F%m%r%h%w\
 set belloff=all
 
 
-set directory=~/tmp//
+set directory=/tmp//
 
 " =================== NETRW hiding list ===========
 let g:netrw_list_hide = 'node_modules'
